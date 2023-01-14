@@ -25,7 +25,7 @@ def login():
 @app.route('/question', methods=['GET'])
 def get_question():
     if request.method == 'GET':
-        user_id = request.form.get('userid')
+        user_id = request.args.get('userid')
         task_df = get_tasks_df()
         recommended_task_id = Recommend.get_recommendations(
             user_id=int(user_id),

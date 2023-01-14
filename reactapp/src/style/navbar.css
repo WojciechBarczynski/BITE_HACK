@@ -1,7 +1,7 @@
 .navbarConteiner {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: rgba(255, 255, 255, 0.45);
     color: rgb(72, 72, 72);
     text-align: center;
@@ -11,6 +11,11 @@
     font-family: 'Open Sans', sans-serif;
     padding: 10px;
     width: 1200px;
+}
+
+.navbarConteiner * {
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .name{
