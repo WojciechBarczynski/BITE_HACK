@@ -1,5 +1,5 @@
 import pandas as pd
-from trueSkills import TrueSkills
+from backend.rating.trueSkills import TrueSkills
 
 DB_CONST = 60
 
@@ -8,7 +8,6 @@ class UpdateData:
     def update_rating(
         user_id,
         task_id,
-        sol_id,
         is_ok,
         user_df,
         task_df,
@@ -23,20 +22,3 @@ class UpdateData:
         user_rating = int(DB_CONST * user_rating + diff)
         task_rating = int(DB_CONST * task_rating - diff)
         return user_rating, task_rating, diff
-
-
-user_df = pd.DataFrame({'id': [1, 2, 3], 'rating': [2000, 1000, 3000]})
-task_df = pd.DataFrame({'id': [1, 2, 3], 'rating': [1500, 700, 2800]})
-sol_df = pd.DataFrame({'id': [], 'user_id': [], 'task_id': []})
-
-for i in range(len(user_df)):
-    for j in range(len(task_df)):
-        print(UpdateData.update_rating(
-            user_df.iloc[i].id,
-            task_df.iloc[j].id,
-            0,
-            True,
-            user_df,
-            task_df,
-            sol_df
-        ))

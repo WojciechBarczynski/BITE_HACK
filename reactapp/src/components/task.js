@@ -3,7 +3,7 @@ import answerService from '../services/answerService';
 import taskService from '../services/taskService';
 import '../style/task.css';
 
-const TaskComponent = () => {
+const TaskComponent = (props) => {
 
     const [currentTask, setCurrentTask] = useState(null);
     const [taskImage, setTaskImage] = useState("");
@@ -23,6 +23,7 @@ const TaskComponent = () => {
     const handleAnswer = () => {
         answerService.answer(localStorage.getItem("userid"), currentTask, answer)
             .then(res => {
+                props.fixStuff();
                 setShowingAnswer(true);
                 setTaskImage(res.data.link);
                 setAnswer(res.data.answer);

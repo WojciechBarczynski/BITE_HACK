@@ -17,14 +17,13 @@ def handle_user_answer(user_id, task_id, user_answer, work_time):
     
     is_correct = is_answer_correct(user_answer, correct_answer)
     
-    (solutions_df, solution_id) = update_solutions(user_id, task_id, work_time, user_answer, is_correct)
+    solutions_df = update_solutions(user_id, task_id, work_time, user_answer, is_correct)
     
     
     (updated_user_rating, updated_task_rating, user_point_delta) = \
         UpdateData.update_rating(
             user_id=user_id,
             task_id=task_id,
-            sol_id=solution_id,
             sol_df=solutions_df,
             is_ok=is_correct,
             user_df=users_df,
@@ -40,9 +39,7 @@ def handle_user_answer(user_id, task_id, user_answer, work_time):
 def update_solutions(user_id, task_id, work_time, user_answer, is_correct):
     post_solution(user_id, task_id, work_time, user_answer, int(is_correct))
     solutions_df = get_solutions_df()
-    print(solutions_df  )
-    solution_id = solutions_df.loc[(solutions_df['user_id'] == user_id) & (solutions_df['task_id'] == task_id)]['id'].values[0]
-    return solution_id, solutions_df
+    return solutions_df
     
 def is_answer_correct(user_answer, correct_answer):
     return math.isclose(user_answer, correct_answer, rel_tol=0.001)    
