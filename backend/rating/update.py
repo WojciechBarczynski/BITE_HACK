@@ -18,7 +18,7 @@ class UpdateData:
         task_rating = task_df[task_df.id == task_id].rating.tolist()[0] / DB_CONST
 
         new_user_rating = TrueSkills().update(user_rating, task_rating, is_ok, time, expectedTime)
-        diff = new_user_rating - user_rating
-        user_rating += diff
-        task_rating -= diff
-        return int(DB_CONST * user_rating), int(DB_CONST * task_rating), int(DB_CONST * diff)
+        diff = int(DB_CONST * (new_user_rating - user_rating))
+        user_rating = int(DB_CONST * user_rating + diff)
+        task_rating = int(DB_CONST * task_rating - diff)
+        return user_rating, task_rating, diff
