@@ -45,7 +45,7 @@ def get_question():
         raise "Question method request unsupported"
 
 @app.route('/userinfo', methods=['GET'])
-def get_question():
+def get_userinfo():
     if request.method == 'GET':
         user_id = int(request.args.get('userid'))
         (user_name, user_rating) = get_user_info(user_id)

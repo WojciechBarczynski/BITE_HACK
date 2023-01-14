@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import userInfoService from '../services/userInfoService';
 import '../style/navbar.css';
 
-const NavbarComponent = () => {
+const NavbarComponent = (props) => {
     const navigate = useNavigate();
     const [loggedIn, setLoggedIn] = useState(false);
     const [userName, setUserName] = useState("");
@@ -19,6 +19,12 @@ const NavbarComponent = () => {
         }
         else setLoggedIn(false)
     }, [])
+
+    useEffect(() => {
+        userInfoService.getUserInfo(localStorage.getItem("userid")).then((res) => {
+            setUserRating(res.data.userrating);
+        })
+    }, [props.fixTime])
     
     const onLogout = () => {
         localStorage.removeItem("userid");
@@ -30,7 +36,7 @@ const NavbarComponent = () => {
             <div className='name'>LevelMind</div>
             <div className="smallFlex">
                 <div>
-                    
+                    {userName} <b>(👑 {userRating})</b>&nbsp;&nbsp;&nbsp;
                 </div>
                 <div>
                     {loggedIn ? <div onClick={onLogout} className='section'>Wyloguj się!</div> : <></>}
