@@ -15,6 +15,7 @@ const HomeComponent = () => {
 
     return (
         <div className='conteiner'>
+            <NavbarComponent/>
             <TaskComponent/>
             <ButtonsComponent/>
         </div>
