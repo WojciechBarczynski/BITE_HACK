@@ -30,4 +30,3 @@ def get_solutions_df():
     
     return pd.DataFrame.from_records(solution.__dict__ for solution in solutions_list)
 
-print(get_solutions_df())
