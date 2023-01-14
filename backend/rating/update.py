@@ -1,5 +1,11 @@
+import sys
+import os
+dir = os.path.dirname(__file__)
+filepath = os.path.join(dir, '../..')
+sys.path.insert(0, filepath)
+
 import pandas as pd
-from trueSkills import TrueSkills
+from backend.rating.trueSkills import TrueSkills
 
 class UpdateData:
     @staticmethod
@@ -15,12 +21,4 @@ class UpdateData:
         diff = new_user_rating - user_rating
         user_rating += diff
         task_rating -= diff
-        return user_rating, task_rating
-
-user_df = pd.read_csv('user.csv')
-task_df = pd.read_csv('task.csv')
-u_id = 1
-t_id = 10
-
-print(UpdateData.update_rating(u_id, t_id, 1, user_df, task_df))
-print(UpdateData.update_rating(u_id, t_id, 0, user_df, task_df))
+        return user_rating, task_rating, diff
