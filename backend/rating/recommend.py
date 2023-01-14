@@ -16,8 +16,3 @@ class Recommend:
         unsolved_tasks['rating'] = unsolved_tasks['rating'].apply(lambda x: abs(x))
         unsolved_tasks = unsolved_tasks.sort_values(by=['rating'])
         return unsolved_tasks.head(1).id.tolist()[0]
-        
-
-
-       
-
