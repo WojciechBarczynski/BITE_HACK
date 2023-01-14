@@ -1,8 +1,10 @@
-import HomeComponent from './components/home'
+import MainComponent from './components/main'
 
 function App() {
   return (
-    <HomeComponent></HomeComponent>
+    <>
+      <MainComponent />
+    </>
   );
 }
 
