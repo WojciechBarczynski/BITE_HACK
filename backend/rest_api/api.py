@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 import sys
 import os
 dir = os.path.dirname(__file__)
@@ -12,10 +13,14 @@ from backend.database_facade.solutions import get_solutions_df
 from backend.database_facade.users import get_users_df
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/login', methods=['POST'])
+@cross_origin()
 def login():
-    return jsonify(userid=str(login_user((request.form.get('username')))))
+  response = jsonify(userid=str(login_user((request.form.get('username')))))
+  return response
     
 @app.route('/question', methods=['GET'])
 def get_question():
@@ -33,6 +38,7 @@ def get_question():
         
     else :
         raise "Question method request unsupported"
+    
 
 if __name__ == '__main__':
    app.run(debug = True)
