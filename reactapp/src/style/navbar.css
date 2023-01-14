@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: rgba(255, 255, 255, 0.45);
-    color: rgb(72, 72, 72);
+    color: black;
     text-align: center;
     border-radius: 20px;
     column-gap: 20px;
@@ -14,7 +14,7 @@
     padding-right: 0px;
 }
 
-.navbarConteiner * {
+.navbarConteiner > * {
     padding-left: 20px;
     padding-right: 20px;
 }

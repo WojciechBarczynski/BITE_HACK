@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavbarComponent from './navbar';
 import '../style/home.css';
 import TaskComponent from './task';
@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const HomeComponent = () => {
     const navigate = useNavigate();
+    const [fixTime, setFixTime] = useState(null);
 
     useEffect(() => {
         if(localStorage.getItem("userid") == null) {
@@ -13,10 +14,14 @@ const HomeComponent = () => {
         }
     }, [])
 
+    const fixStuff = () => {
+        setFixTime(Date.now())
+    }
+
     return (
         <div className='conteiner'>
-            <NavbarComponent/>
-            <TaskComponent/>
+            <NavbarComponent fixTime={fixTime} />
+            <TaskComponent fixStuff={fixStuff} />
         </div>
     );
 };
