@@ -2,8 +2,8 @@ import pymysql
 import pandas as pd
 
 class SolutionEntry:
-    def __init__(self, id, task_id, user_id, work_time_seconds, user_answer, is_correct):
-        self.id = id
+    def __init__(self, sol_id, task_id, user_id, work_time_seconds, user_answer, is_correct):
+        self.id = sol_id
         self.task_id = task_id
         self.user_id = user_id
         self.work_time_seconds = work_time_seconds

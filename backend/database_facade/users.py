@@ -2,8 +2,8 @@ import pymysql
 import pandas as pd
 
 class TaskEntry:
-    def __init__(self, id, name, rating):
-        self.id = id
+    def __init__(self, task_id, name, rating):
+        self.id = task_id
         self.name = name
         self.rating = rating
         
