@@ -29,7 +29,7 @@ user_question_send_time = {}
 @app.route('/question', methods=['GET'])
 def get_question():
     if request.method == 'GET':
-        user_id = int(request.form.get('userid'))
+        user_id = int(request.args.get('userid'))
         task_df = get_tasks_df()
         recommended_task_id = Recommend.get_recommendations(
             user_id=user_id,

@@ -27,11 +27,12 @@ const LoginComponent = () => {
     return (
         <div className='conteiner'>
             <NavbarComponent/>
-            <div>
-            <input type="text" value={loginInput} 
-                onChange={(e) => {setLoginInput(e.target.value)}} />
-            <button onClick={onLogin}>Zaloguj się</button>
-        </div>
+            <div className='task'>
+                <h2>Logowanie...</h2>
+                <input className="taskInput" type="text" value={loginInput} 
+                    onChange={(e) => {setLoginInput(e.target.value)}} style={{marginTop: "0"}} /><br />
+                <button className="niceButton" onClick={onLogin} style={{marginTop: "10px"}}>Zaloguj się</button>
+            </div>
         </div>
     );
 };
