@@ -1,0 +1,29 @@
+
+.task{
+    width: 1160px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.55);
+    color: rgba(75, 75, 75, 1);
+    font-size: large;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.taskImage {
+    width: 100%;
+}
+
+.taskInput {
+    width: 330px;
+    padding-left: 20px;
+    border-radius: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 0;
+    height: 40px;
+    margin-top: 20px;
+}
