@@ -17,7 +17,7 @@ class TrueSkills:
 
     def update(self, player_rating, task_rating, outcome, time, expectedTime):
         expected_outcome = self.expected_outcome(player_rating, task_rating)
-        new_rating = player_rating + self.tau * self.sigma * (outcome - expected_outcome)*self.includeTime(expectedTime, time, outcome)
+        new_rating = player_rating + self.tau * self.sigma * (outcome - expected_outcome) * self.includeTime(expectedTime, time, outcome)
         return new_rating
 
     def expected_outcome(self, player_rating, task_rating):
