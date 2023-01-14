@@ -1,8 +1,6 @@
 import pandas as pd
 from backend.rating.trueSkills import TrueSkills
 
-FRONT_CONST = 60
-
 class UpdateData:
     @staticmethod
     def update_rating(
@@ -21,4 +19,4 @@ class UpdateData:
         diff = new_user_rating - user_rating
         user_rating += diff
         task_rating -= diff
-        return int(FRONT_CONST * user_rating), int(FRONT_CONST * task_rating), int(FRONT_CONST * diff)
+        return user_rating, task_rating, diff
