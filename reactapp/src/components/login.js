@@ -17,11 +17,10 @@ const LoginComponent = () => {
     }, [])
     
     const onLogin = () => {
-        localStorage.setItem("userid", "test");
-        navigate("/");
-        //loginService.login(loginInput).then((res) => {
-        //    localStorage.setItem("userid", res.userid)
-        //})
+        loginService.login(loginInput).then((res) => {
+            localStorage.setItem("userid", res.data.userid)
+            navigate("/");
+        })
     }
 
     return (
