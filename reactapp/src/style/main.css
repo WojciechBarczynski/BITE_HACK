@@ -4,9 +4,24 @@ body {
     font-size: 16px;
     color: #2b2b2b;
     line-height: 1.5;
+    background-image: url("https://images.pexels.com/photos/132037/pexels-photo-132037.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1, h2, h3 {
     font-family: 'Georgia', 'Times New Roman', serif;
     font-weight: bold;
+}
+
+.conteiner{
+    margin-top: 50px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+    margin-top: 60px;
 }

@@ -1,4 +1,8 @@
 import React from 'react';
+import NavbarComponent from './navbar';
+import '../style/home.css';
+import TaskComponent from './task';
+import ButtonsComponent from './buttons';
 import { useNavigate } from 'react-router-dom';
 
 const HomeComponent = () => {
@@ -10,9 +14,9 @@ const HomeComponent = () => {
     }
 
     return (
-        <div>
-            Welcome!
-            <button onClick={onLogout}>Wyloguj się</button>
+        <div className='conteiner'>
+            <TaskComponent/>
+            <ButtonsComponent/>
         </div>
     );
 };

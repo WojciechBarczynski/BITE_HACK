@@ -6,9 +6,10 @@ import LoginComponent from './login';
 
 const MainComponent = () => {
     return (
-        <>
-            <LoginComponent />
-        </>
+        <div className = 'container'>
+            <NavbarComponent/>
+            <HomeComponent /> 
+        </div>  
     );
 };
 
