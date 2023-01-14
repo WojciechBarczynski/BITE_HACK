@@ -5,10 +5,10 @@ import HomeComponent from './home';
 
 const MainComponent = () => {
     return (
-        <>
-            <NavbarComponent />
-            <HomeComponent />   
-        </>
+        <div className = 'container'>
+            <NavbarComponent/>
+            <HomeComponent /> 
+        </div>  
     );
 };
 

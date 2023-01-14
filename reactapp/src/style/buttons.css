@@ -1,0 +1,44 @@
+.buttonsContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1200px;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    column-gap: 20px;
+}
+
+.buttonik{
+    height: 50px;
+    width: 200px;
+    background-color: #223891;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 15px;
+    border-radius: 20px;
+    border: solid black 5px;
+    cursor: pointer;
+}
+
+.buttonik:hover{
+    color: #0f5bff;
+    background-color: #192b72;
+}
+
+.inpucik{
+    height: 50px;
+    width: 600px;
+    border: solid black 5px;
+    background-color: #5f7ae7;
+    color: white;
+    font-size: 40px;
+    border-radius: 20px;
+}
