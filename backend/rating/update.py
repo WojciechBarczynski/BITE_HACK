@@ -8,7 +8,6 @@ class UpdateData:
     def update_rating(
         user_id,
         task_id,
-        sol_id,
         is_ok,
         user_df,
         task_df,

@@ -10,7 +10,7 @@ from backend.rest_api.user_login import login_user
 from backend.rating.recommend import Recommend
 from backend.database_facade.tasks import get_tasks_df
 from backend.database_facade.solutions import get_solutions_df
-from backend.database_facade.users import get_users_df
+from backend.database_facade.users import get_users_df, get_user_info
 from handle_answer import handle_user_answer
 import datetime
 
@@ -43,6 +43,15 @@ def get_question():
         
     else :
         raise "Question method request unsupported"
+
+@app.route('/userinfo', methods=['GET'])
+def get_question():
+    if request.method == 'GET':
+        user_id = int(request.args.get('userid'))
+        (user_name, user_rating) = get_user_info(user_id)
+        return jsonify(username=user_name, userrating=user_rating)
+    else :
+        raise "User info method request unsupported"
 
 @app.route('/answer', methods=['POST'])
 def handle_answer():
