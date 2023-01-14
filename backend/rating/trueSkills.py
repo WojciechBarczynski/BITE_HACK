@@ -5,9 +5,19 @@ class TrueSkills:
         self.beta = beta
         self.tau = tau
 
-    def update(self, player_rating, task_rating, outcome):
+    def includeTime(expectedTime, time, outcome):
+        if outcome:
+            return 1
+        else:
+            if time > expectedTime:
+                return max(0, 1 - ((1.04**(time-expectedTime))/expectedTime))
+            else:
+                return (2 - ((time)/expectedTime))
+
+
+    def update(self, player_rating, task_rating, outcome, time, expectedTime):
         expected_outcome = self.expected_outcome(player_rating, task_rating)
-        new_rating = player_rating + self.tau * self.sigma * (outcome - expected_outcome)
+        new_rating = player_rating + self.tau * self.sigma * (outcome - expected_outcome)*self.includeTime(expectedTime, time, outcome)
         return new_rating
 
     def expected_outcome(self, player_rating, task_rating):
