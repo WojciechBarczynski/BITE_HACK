@@ -5,7 +5,7 @@ class TrueSkills:
         self.beta = beta
         self.tau = tau
 
-    def includeTime(expectedTime, time, outcome):
+    def includeTime(self, expectedTime, time, outcome):
         if outcome:
             return 1
         else:
