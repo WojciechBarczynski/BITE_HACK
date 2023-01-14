@@ -11,7 +11,8 @@ app = Flask(__name__)
 
 @app.route('/login', methods=['POST'])
 def login():
-    return jsonify(login_user((request.args.get('name'))))
- 
+    return jsonify(userid=str(login_user((request.args.get('username')))))
+     
+
 if __name__ == '__main__':
    app.run(debug = True)
