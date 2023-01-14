@@ -34,6 +34,11 @@ def get_users():
         users_list.append(UserEntry(*database_entry))
     return users_list
 
+def get_user_info(user_id):
+    users = get_users()
+    user = list(filter(lambda user: user.id == user_id, users))[0]
+    return user.name, user.rating
+
 
 def create_user(user_name):
     users = get_users_df()

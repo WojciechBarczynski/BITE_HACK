@@ -3,7 +3,6 @@ import pandas as pd
 
 class SolutionEntry:
     def __init__(self, sol_id, task_id, user_id, work_time_seconds, user_answer, is_correct):
-        self.id = sol_id
         self.task_id = task_id
         self.user_id = user_id
         self.work_time_seconds = work_time_seconds
@@ -19,9 +18,9 @@ class SolutionEntry:
         )
         try:
             with connection.cursor() as cursor:
-                sql = "INSERT INTO solutions (ID, TaskID, UserID, WorkTimeSeconds, UserAnswer, IsCorrect)" + "\n" \
+                sql = "INSERT INTO solutions (TaskID, UserID, WorkTimeSeconds, UserAnswer, IsCorrect)" + "\n" \
                     + "VALUES (%s, %s, %s, %s, %s, %s)"
-                val = (f"{self.id}", f"{self.task_id}", f"{self.user_id}", f"{self.work_time_seconds}", f"{self.user_answer}", f"{self.is_correct}")
+                val = (f"{self.task_id}", f"{self.user_id}", f"{self.work_time_seconds}", f"{self.user_answer}", f"{self.is_correct}")
                 cursor.execute(sql, val)
                 connection
             
@@ -64,7 +63,7 @@ def post_solution(user_id, task_id, work_time, user_answer, is_correct):
         with connection.cursor() as cursor:
             sql = "INSERT INTO solutions (TaskID, UserID, WorkTimeSeconds, UserAnswer, IsCorrect)" \
                 + "\n" + "VALUES (%s, %s, %s, %s, %s)"
-            val = (f"{user_id}", f"{task_id}", f"{work_time}", f"{user_answer}", f"{is_correct}")
+            val = (f"{task_id}", f"{user_id}", f"{work_time}", f"{user_answer}", f"{is_correct}")
             cursor.execute(sql, val)
             connection.commit()
     finally:
