@@ -11,12 +11,19 @@ const TaskComponent = (props) => {
     const [showingAnswer, setShowingAnswer] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
     const [ranking, setRanking] = useState(0);
+    const [time, setTime] = useState(0);
+    let timeInterval;
 
     const generate = () => {
         taskService.generate().then((res) => {
             setCurrentTask(res.data.taskid)
             setTaskImage(res.data.taskurl)
             setShowingAnswer(false)
+            setTime(0)
+            clearInterval(timeInterval)
+            timeInterval = setInterval(() => {
+                setTime(prevTime => prevTime + 1);
+            }, 1000)
         })
     }
 
@@ -33,8 +40,18 @@ const TaskComponent = (props) => {
     }
 
     const getResultHeader = () => {
-        if(isCorrect) return <h2>Twoje rozwiązanie jest poprawne! (Ranking +{ranking})</h2>
-        else return <h2>Popełniłeś błąd (Ranking -{ranking*(-1)})</h2>
+        if(isCorrect) 
+            return <h2>Twoje rozwiązanie jest poprawne! <span className="tGreen">(Ranking +{ranking})</span></h2>
+        else 
+            return <h2>Popełniłeś błąd <span className="tRed">(Ranking -{ranking*(-1)})</span></h2>
+    }
+
+    const displayTime = () => {
+        let mins = Math.floor(time/60);
+        let secs = time%60;
+        if(mins < 10) mins = "0" + mins;
+        if(secs < 10) secs = "0" + secs;
+        return mins + ":" + secs;
     }
 
     if(showingAnswer) {
@@ -60,6 +77,7 @@ const TaskComponent = (props) => {
     return (
         <div className='task'>
             <h2>Rozwiązujesz zadanie: #{currentTask}</h2>
+            Aktualny czas rozwiązania: 🕑 <b>{displayTime()}</b>
             <img className="taskImage" src={taskImage} alt="Zdjęcie nie wczytało się poprawnie..." />
             <input placeholder="Wpisz odpowiedź..." className="taskInput" type="text" onChange={(e) => setAnswer(e.target.value)}/><br />
             <button onClick={handleAnswer} className="niceButton" style={{marginTop: "10px"}}>Wyślij rozwiązanie</button>
