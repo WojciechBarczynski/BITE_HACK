@@ -5,7 +5,7 @@ class SolutionEntry:
     def __init__(self, sol_id, task_id, user_id, work_time_seconds, user_answer, is_correct):
         self.task_id = task_id
         self.user_id = user_id
-        self.work_time_seconds = work_time_seconds
+        self.time = work_time_seconds
         self.user_answer = user_answer
         self.is_correct = bool(is_correct)
     

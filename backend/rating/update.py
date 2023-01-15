@@ -12,6 +12,8 @@ class UpdateData:
         user_df,
         task_df,
         sol_df):
+        print(sol_df)
+        print(task_df)
         time = sol_df[sol_df.user_id == user_id]
         time = time[time.task_id == task_id].time.tolist()[0]
         expectedTime = sol_df[sol_df.task_id == task_id].time.tolist()
