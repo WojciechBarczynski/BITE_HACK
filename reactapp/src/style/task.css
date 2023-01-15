@@ -5,10 +5,9 @@
     padding-left: 30px;
     padding-right: 30px;
     padding-bottom: 30px;
-    background-color: rgba(255, 255, 255, 0.55);
+    background-color: rgba(255, 255, 255, 0.68);
     color: black;
     font-size: large;
-    font-weight: bold;
     border-radius: 20px;
 }
 
@@ -26,4 +25,12 @@
     border: 0;
     height: 40px;
     margin-top: 20px;
+}
+
+.tGreen {
+    color: rgb(0, 74, 0);
+}
+
+.tRed {
+    color: rgb(121, 3, 3);
 }

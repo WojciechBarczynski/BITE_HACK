@@ -36,7 +36,7 @@ const NavbarComponent = (props) => {
             <div className='name'>LevelMind</div>
             <div className="smallFlex">
                 <div>
-                    {userName} <b>(👑 {userRating})</b>&nbsp;&nbsp;&nbsp;
+                    {loggedIn ? <div>{userName} <b>(👑 {userRating})</b>&nbsp;&nbsp;&nbsp;</div> : <></>}
                 </div>
                 <div>
                     {loggedIn ? <div onClick={onLogout} className='section'>Wyloguj się!</div> : <></>}
