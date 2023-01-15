@@ -15,8 +15,8 @@ Oraz połączenie z AGH VPN (wymagane do połączenia z bazą danych).
 
 ## Jak uruchomić aplikację?
 Aby uruchomić aplikację należy:
-- uruchomić za pomocą Pythona plik './backend/rest_api/api.py': `python3 ./backend/rest_api/api.py`
-- wejść do folderu './frontend': `cd ./frontend`, pobrać zalżności npm: `npm install` i uruchomić aplikację: `npm start`
+- uruchomić za pomocą Pythona plik './backend/rest_api/api.py': `python3 backend/rest_api/api.py`
+- wejść do folderu './reactapp': `cd reactapp`, pobrać zalżności npm: `npm install` i uruchomić aplikację: `npm start`
 
 # Algorytmy i struktury danych
 Główną częścią aplikacji są algorytmy odpowiedzialne za dostosowywanie poziomu trudności zadań do poziomu użytkownika. Aby to zrobić, wykorzystane zostało założenie, że zadanie to również użytkownik, który współdzieli ustandaryzowany ranking razem z innymi użytkownikami. Różnica polega na tym, że zadania nie wybierają użytkowników, tylko są tak naprawdę 'NPC' czekającymi na walkę z użytkownikiem. Jeżeli zadanie nie zostanie poprawnie rozwiązane, to zostaje uznane za trudniejsze niż było w rzeczywistości, jeżeli jednak użytkownik rozwiąże rozwiązanie, to zadanie zostaje uznane za łatwiejsze i dodatkowo użytkownik może dostać dodatkowe punkty za szybkość rozwiązania. Wszystko to dzięki zmodyfikowanej wersji algorytmu TrueSkill.
